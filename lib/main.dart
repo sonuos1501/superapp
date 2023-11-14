@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:miniapp/main.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyAppSuperApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyAppSuperApp extends StatelessWidget {
+  const MyAppSuperApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => const MyApp()));
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
